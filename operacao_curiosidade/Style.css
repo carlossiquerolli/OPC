@@ -1,0 +1,292 @@
+/* =======================================
+   BASE — MOBILE FIRST
+======================================= */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --bg: #f4f6f9;
+  --card: #ffffff;
+  --muted: #6b7280;
+  --accent: #0f172a;
+  --blue: #0f097d;
+  --green: #1a7401;
+  --red: #820a0a;
+  --radius: 10px;
+  --shadow: 0 6px 18px rgba(18,24,40,0.08);
+  font-family: "Segoe UI", Roboto, sans-serif;
+}
+
+body {
+  background: linear-gradient(180deg, #eef2ff 0%, var(--bg) 100%);
+  color: #0b1220;
+  padding: 12px;
+}
+
+
+/* FORM LOGIN */
+form {
+  width: 100%;
+  max-width: 350px;
+  margin: 30px auto;
+  padding: 18px;
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  text-align: center;
+}
+
+/* Logo */
+.logo-circle {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, #e6eefc, #65686c);
+  border-radius: 50%;
+  margin: 0 auto 18px auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.logo-circle .main-text {
+  font-size: 32px;
+  font-weight: 800;
+}
+
+.logo-circle .subtitle {
+  font-size: 11px;
+  margin-top: 6px;
+  color: var(--accent);
+}
+
+/* Inputs */
+input[type="email"],
+input[type="password"],
+input[type="search"] {
+  width: 100%;
+  height: 44px;
+  padding: 0 10px;
+  border-radius: 8px;
+  border: 1.5px solid rgba(0,0,0,0.1);
+  margin-bottom: 14px;
+  background: #fff;
+}
+
+input:focus {
+  border-color: var(--blue);
+  box-shadow: 0 0 8px rgba(37,99,235,0.2);
+  outline: none;
+}
+
+/* Buttons */
+button {
+  width: 100%;
+  height: 46px;
+  border: none;
+  border-radius: 8px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+button.logout {
+  background: transparent;
+  color: var(--red);
+  border: 1.5px solid rgba(239,68,68,0.4);
+  margin-top: 12px;
+}
+
+.sidebar {
+  width: 100%;
+  background: #000000;
+  padding: 14px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+  color: white;
+  margin-bottom: 22px;
+}
+
+.sidebar .logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.logo .logo-text {
+  width: 42px;
+  height: 42px;
+  background: #e6eefc;
+  color: var(--accent);
+  border-radius: 8px;
+  font-weight: 800;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.menu ul {
+  list-style: none;
+  margin-top: 18px;
+}
+
+.menu li {
+  margin-bottom: 12px;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #e6eefc;
+  font-weight: 600;
+  display: block;
+  padding: 8px 4px;
+  border-radius: 6px;
+}
+
+.menu a:hover {
+  background: rgba(255,255,255,0.1);
+}
+
+/* Main area */
+.main-content {
+  padding: 4px;
+}
+
+/* Cards — Mobile empilha */
+.dashboard-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.card {
+  background: var(--card);
+  padding: 14px;
+  border-radius: 12px;
+  box-shadow: var(--shadow);
+}
+
+.card .number {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.card .description {
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.number.blue { color: var(--blue); }
+.number.green { color: var(--green); }
+.number.red { color: var(--red); }
+
+/* Table — Mobile vira cartões */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 14px;
+  display: block;
+}
+
+thead {
+  display: none;
+}
+
+tbody tr {
+  background: var(--card);
+  padding: 12px;
+  border-radius: 12px;
+  margin-bottom: 12px;
+  box-shadow: var(--shadow);
+  display: block;
+}
+
+tbody td {
+  display: flex;
+  justify-content: space-between;
+  padding: 8px 4px;
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+td.inactive {
+  color: var(--muted);
+  font-weight: 600;
+}
+
+/* =======================================
+   BREAKPOINTS — MOBILE FIRST
+======================================= */
+
+/* Tablet ≥ 640px */
+@media (min-width: 640px) {
+
+  .dashboard-cards {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .card {
+    flex: 1 1 calc(50% - 12px);
+  }
+}
+
+/* Desktop ≥ 960px */
+@media (min-width: 960px) {
+
+  body {
+    padding: 0;
+  }
+
+  .sidebar {
+    position: fixed;
+    width: 240px;
+    height: 100vh;
+    border-radius: 0;
+    margin-bottom: 0;
+  }
+
+  .main-content {
+    margin-left: 240px;
+    padding: 22px;
+  }
+
+  .card {
+    flex: 1 1 calc(33.3% - 12px);
+  }
+
+  /* Tabela normal no desktop */
+  table {
+    display: table;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tbody tr {
+    display: table-row;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 0;
+  }
+
+  tbody td {
+    display: table-cell;
+    padding: 12px 16px;
+    border-bottom: 1px solid rgba(0,0,0,0.05);
+  }
+}
+
+/* Desktop grande ≥ 1280px */
+@media (min-width: 1280px) {
+
+  .main-content {
+    max-width: 1200px;
+    margin: 0 auto 0 240px;
+  }
+}

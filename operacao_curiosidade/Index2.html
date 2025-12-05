@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard - Operação Curiosidade</title>
+  <link rel="stylesheet" href="Style.css">
+</head>
+<body>
+
+  <aside class="sidebar">
+    <div class="logo">
+      <span class="logo-text"><strong>OC</strong></span>
+      <span>Operação Curiosidade</span>
+    </div>
+
+    <nav class="menu">
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Cadastro</a></li>
+        <li><a href="#">Relatórios</a></li>
+      </ul>
+    </nav>
+  </aside>
+
+  <div class="main-content">
+
+    <header class="topbar">
+      <input type="search" id="pesquisar" placeholder="Pesquisar...">
+      <div class="user-info">
+        <div class="user-avatar"></div>
+        <span id="nomeUsuario">Carlos Eduardo</span>
+        <button class="logout" onclick="logout()">SAIR</button>
+      </div>
+    </header>
+
+    <section class="dashboard-cards">
+      <div class="card">
+        <span class="number blue" id="totalCadastros">0</span>
+        <span class="description">Total de cadastros</span>
+      </div>
+
+      <div class="card">
+        <span class="number green" id="ativos">0</span>
+        <span class="description">Ativos</span>
+      </div>
+
+      <div class="card">
+        <span class="number red" id="inativos">0</span>
+        <span class="description">Inativos</span>
+      </div>
+    </section>
+
+    <section class="latest-registrations">
+      <h2>Últimos cadastros</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>NOME</th>
+            <th>E-MAIL</th>
+            <th>STATUS</th>
+          </tr>
+        </thead>
+        <tbody id="listaUsuarios"></tbody>
+      </table>
+    </section>
+
+  </div>
+
+  <script src="Script.js"></script>
+</body>
+</html>
